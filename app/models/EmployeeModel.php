@@ -52,8 +52,8 @@ class EmployeeModel extends Model
         $sql_update = "UPDATE nhanvien set HoTen = :HoTen, NgaySinh = :NgaySinh, QueQuan = :QueQuan, GioiTinh = :GioiTinh, SDT = :SDT, MaPB = :MaPB, MaCV = :MaCV, MaTDHV = :MaTDHV, BacLuong = :BacLuong, avatar = :avatar WHERE MaNV = :MaNV";
         $obj_update = $this->__connection->prepare($sql_update);
         $data = [
-            ':TenPB' => $this->__ho_ten,
-            ':NgaySinh' => $this->__dia_chi,
+            ':HoTen' => $this->__ho_ten,
+            ':NgaySinh' => $this->__ngay_sinh,
             ':SDT' => $this->__sdt,
             ':QueQuan' => $this->__que,
             ':GioiTinh' => $this->__gioi_tinh,
@@ -62,7 +62,7 @@ class EmployeeModel extends Model
             ':MaTDHV' => $this->__ma_tdhv,
             ':BacLuong' => $this->__bac_luong,
             ':avatar' => $this->__avatar,
-            ':MaNV' => $MaNV,
+            ':MaNV' => $MaNV
         ];
         return $obj_update->execute($data);
     }

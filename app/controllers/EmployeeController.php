@@ -108,7 +108,7 @@ class EmployeeController extends Controller
         }
 
         $MaNV = $_GET['MaNV'];
-        $data['data'] = $employee_model->getById($MaNV);
+        $data['data']['employee'] = $employee_model->getById($MaNV);
         if (isset($_POST['submit'])) {
             $fullname = $_POST['fullname'];
             $phone = $_POST['phone'];
@@ -134,7 +134,7 @@ class EmployeeController extends Controller
             }
 
             if (empty($_SESSION['error'])) {
-                $filename = $data['employee']['avatar'];
+                $filename = $data['data']['avatar'];
                 if ($avatar['error'] == 0) {
                     $dir_upload = "assets/uploads";
                     if (!file_exists($dir_upload)) {
